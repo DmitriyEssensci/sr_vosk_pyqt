@@ -442,9 +442,9 @@ class MainWidget(QMainWindow):
         self.saveLogsWindow.triggered.connect(self.saveLogs)
         #
         #self.openFile = QAction(QIcon('open.png'), '&Open', self)   
-        self.openFiles = QAction("&Открыть файл", self)
-        self.openFiles.setStatusTip("Открывает файл")
-        self.openFiles.triggered.connect(self.onExportButtonClicked)
+        # self.openFiles = QAction("&Открыть файл", self)
+        # self.openFiles.setStatusTip("Открывает файл")
+        # self.openFiles.triggered.connect(self.onExportButtonClicked)
         #########fileMenu
 
         #########helpMenu
@@ -463,7 +463,7 @@ class MainWidget(QMainWindow):
         fileMenu = QMenu("&Меню", self)
         fileMenu.addAction(self.exitAction)
         fileMenu.addAction(self.saveLogsWindow)
-        fileMenu.addAction(self.openFiles)
+        # fileMenu.addAction(self.openFiles)
         menuBar.addMenu(fileMenu)
 
         helpMenu = menuBar.addMenu("&Помощь")
@@ -492,25 +492,7 @@ class MainWidget(QMainWindow):
     
     def saveLogs(self):
          QMessageBox.about(self, "Логи ", "Окно сохранения логов")
-
-    # def openFile(self):
-    #     FilePath, _ = QFileDialog.getOpenFileName()
-    #     self.listbox_view.currentItem(FilePath)
-    #     # pixmap = QPixmap(FilePath)
-    #     # self.label.setPixmap(pixmap)
-    #     # self.resize(pixmap.size())
-    #     # self.adjustSize()
-
-    def onExportButtonClicked(self):
-        filename, filter =  QFileDialog.getSaveFileName(parent=self) #, caption='Select output file', dir='.', filter='Kicad PCB Files (*.kicad_pcb)'
-        if filename:
-            print(filename)
-      
-            # self.listbox_view.currentItem(filename)
-            #print (filename)
-    ######################### navigation bars
         
-
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ui = MainWidget()
